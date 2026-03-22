@@ -5,8 +5,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/lenovo/TB-X505X
+DEVICE_PATH := device/lenovo/TB-X505X
 
 # Touch Firmware
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/vendor/firmware/AbovCapSense.BIN:recovery/root/vendor/firmware/AbovCapSense.BIN
+    $(DEVICE_PATH)/prebuilt/vendor/firmware/AbovCapSense.BIN:recovery/root/vendor/firmware/AbovCapSense.BIN
+
+# Touch Fix Script
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/bin/touch_fix.sh:recovery/root/bin/touch_fix.sh
