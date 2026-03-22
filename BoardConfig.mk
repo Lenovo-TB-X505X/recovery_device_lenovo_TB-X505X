@@ -31,7 +31,7 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x80000000
-# Removed firmware_class.path override to allow ramdisk loading
+# Removed firmware_class.path to allow the ramdisk symlinks to work
 BOARD_KERNEL_CMDLINE := androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78B0000 androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on buildvariant=user
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -82,8 +82,17 @@ PLATFORM_VERSION := 16.1.0
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hallsensor"
 TW_USE_TOOLBOX := true
+
+# Touch & Input Fixes
+# Blacklisting 'hallsensor' is critical as it often hijacks the primary input slot
+TW_INPUT_BLACKLIST := "hallsensor"
+# Force TWRP to use standard Linux events for the ABOV controller
+TW_HAVE_RECOVERY_ALLOWED_EVENT_TYPES := true
+# Use line length for graphics to prevent UI "freezing" on msm8937
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# Brightness
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 200
