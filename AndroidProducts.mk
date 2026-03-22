@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_TB-X505X.mk
+    $(LOCAL_DIR)/twrp_X505X.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_TB-X505X-user \
-    omni_TB-X505X-userdebug \
-    omni_TB-X505X-eng
+    twrp_X505X-user \
+    twrp_X505X-userdebug \
+    twrp_X505X-eng
