@@ -1,4 +1,4 @@
-# Android device tree for Lenovo Lenovo TB-X505X (TB-X505X)
+# Android device tree for Lenovo TB-X505X (TB-X505X)
 
 ```
 #
