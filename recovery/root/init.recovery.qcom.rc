@@ -55,3 +55,14 @@ on post-fs
     
     # Legacy fallbacks
     symlink /vendor/firmware/AbovCapSense.BIN /etc/firmware/AbovCapSense.BIN
+
+    # Start the hardware fix script
+    start touch_fix
+
+# Service definition for the manual touch fix script
+service touch_fix /sbin/sh /bin/touch_fix.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:recovery:s0
