@@ -64,3 +64,10 @@ on property:sys.usb.ffs.ready=1
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+# ABOV Touch Controller Initialization
+on post-fs
+    mkdir /vendor/firmware 0771 system system
+    chown system system /vendor/firmware/AbovCapSense.BIN
+    chmod 0664 /vendor/firmware/AbovCapSense.BIN
+    symlink /vendor/firmware/AbovCapSense.BIN /etc/firmware/AbovCapSense.BIN
